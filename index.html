@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order • JK Restaurant</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                         "Helvetica Neue", Arial, sans-serif;
+            background: white;
+            color: black;
+        }
+
+        header {
+            padding: 24px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            padding-bottom: 140px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .category {
+            margin-bottom: 40px;
+        }
+
+        .category h2 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .food-card {
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .food-info h3 {
+            margin: 0 0 6px;
+        }
+
+        .food-info p {
+            margin: 0;
+            color: #666;
+        }
+
+        .price {
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+
+        button {
+            background: black;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        #error {
+            text-align: center;
+            color: #b00020;
+        }
+
+        #basket {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: black;
+            color: white;
+            padding: 18px 22px;
+            border-radius: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        #basket-text {
+            font-weight: 600;
+        }
+
+        #basket button {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    JK Restaurant
+</header>
+
+<main>
+
+    <h1>Order Food</h1>
+    <p class="subtitle">Choose something delicious.</p>
+
+    <div id="menu">
+        Loading menu...
+    </div>
+
+    <p id="error"></p>
+
+</main>
+
+<div id="basket">
+    <span id="basket-text">Basket: 0 items • £0.00</span>
+    <button onclick="goToBasket()">View Basket</button>
+</div>
+
+<script>
+
+let basket = JSON.parse(
+    localStorage.getItem("jkRestaurantBasket")
+) || [];
+
+fetch("../data/menu.json")
+    .then(response => response.json())
+    .then(menuData => {
+
+        const menu = document.getElementById("menu");
+
+        menu.innerHTML = "";
+
+        menuData.categories.forEach(category => {
+
+            const categorySection = document.createElement("section");
+            categorySection.className = "category";
+
+            const heading = document.createElement("h2");
+            heading.textContent = category.name;
+
+            categorySection.appendChild(heading);
+
+            category.items.forEach(item => {
+
+                const card = document.createElement("div");
+                card.className = "food-card";
+
+                const info = document.createElement("div");
+                info.className = "food-info";
+
+                const name = document.createElement("h3");
+                name.textContent = item.name;
+
+                const description = document.createElement("p");
+                description.textContent = item.description;
+
+                info.appendChild(name);
+                info.appendChild(description);
+
+                const rightSide = document.createElement("div");
+
+                const price = document.createElement("div");
+                price.className = "price";
+                price.textContent = "£" + item.price.toFixed(2);
+
+                const button = document.createElement("button");
+                button.textContent = "Add";
+
+                button.onclick = function() {
+                    addToBasket(item);
+                };
+
+                rightSide.appendChild(price);
+                rightSide.appendChild(button);
+
+                card.appendChild(info);
+                card.appendChild(rightSide);
+
+                categorySection.appendChild(card);
+            });
+
+            menu.appendChild(categorySection);
+        });
+
+        updateBasket();
+
+    })
+    .catch(error => {
+
+        document.getElementById("menu").innerHTML = "";
+
+        document.getElementById("error").textContent =
+            "Could not load the menu.";
+
+        console.error(error);
+    });
+
+
+function addToBasket(item) {
+
+    basket.push(item);
+
+    localStorage.setItem(
+        "jkRestaurantBasket",
+        JSON.stringify(basket)
+    );
+
+    updateBasket();
+}
+
+
+function updateBasket() {
+
+    const itemCount = basket.length;
+
+    const total = basket.reduce(function(sum, item) {
+        return sum + item.price;
+    }, 0);
+
+    document.getElementById("basket-text").textContent =
+        "Basket: " + itemCount +
+        " item" + (itemCount === 1 ? "" : "s") +
+        " • £" + total.toFixed(2);
+}
+
+
+function goToBasket() {
+
+    window.location.href = "../basket/";
+}
+
+</script>
+
+</body>
+</html>
