@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>All Orders | JK Restaurant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">JK Restaurant</a>
+
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="order.html">Customer site</a>
+            <a href="management.html">Management</a>
+            <a href="timer.html">Meal times</a>
+        </nav>
+    </header>
+
+    <main class="admin-page">
+
+        <section class="page-heading">
+            <p class="eyebrow">STAFF DASHBOARD</p>
+            <h1>All orders.</h1>
+            <p>View and manage restaurant orders.</p>
+        </section>
+
+        <section class="orders-dashboard">
+
+            <div class="dashboard-toolbar">
+
+                <div>
+                    <h2>Order overview</h2>
+                    <p id="orders-last-updated">
+                        Waiting for order data...
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="refresh-orders"
+                >
+                    Refresh orders
+                </button>
+
+            </div>
+
+            <div class="order-statistics">
+
+                <div class="stat-card">
+                    <span>Total orders</span>
+                    <strong id="total-orders">—</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>New orders</span>
+                    <strong id="new-orders">—</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Preparing</span>
+                    <strong id="preparing-orders">—</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Completed</span>
+                    <strong id="completed-orders">—</strong>
+                </div>
+
+            </div>
+
+            <div class="orders-controls">
+
+                <div>
+                    <label for="order-filter">Filter orders</label>
+
+                    <select id="order-filter">
+                        <option value="all">All orders</option>
+                        <option value="new">New</option>
+                        <option value="preparing">Preparing</option>
+                        <option value="ready">Ready</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="order-search">Search</label>
+
+                    <input
+                        type="search"
+                        id="order-search"
+                        placeholder="Search customer or order..."
+                    >
+                </div>
+
+            </div>
+
+            <div class="orders-table-container">
+
+                <table class="orders-table">
+
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="orders-list">
+
+                        <tr>
+                            <td colspan="6">
+                                Loading orders...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div id="orders-empty" hidden>
+                <h3>No orders found</h3>
+                <p>New customer orders will appear here.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>JK Restaurant</p>
+        <a href="admin.html">Staff access</a>
+    </footer>
+
+    <script src="admin.js"></script>
+
+</body>
+</html>
