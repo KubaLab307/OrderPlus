@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Order | JK Restaurant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            JK Restaurant
+        </a>
+
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="order.html">Order</a>
+            <a href="timer.html">Meal times</a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="page-heading">
+            <p class="eyebrow">JK RESTAURANT</p>
+            <h1>Our Menu.</h1>
+            <p>
+                Explore our food and build your order.
+            </p>
+        </section>
+
+        <section class="ordering-layout">
+
+            <div class="menu-area">
+
+                <div class="menu-heading">
+                    <h2>Food and drinks</h2>
+                    <p>Our latest menu</p>
+                </div>
+
+                <div id="menu-container">
+
+                    <div class="loading-message">
+                        <p>Loading the menu...</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <aside class="cart-area">
+
+                <div class="cart-heading">
+                    <h2>Your order</h2>
+                    <span id="cart-count">0 items</span>
+                </div>
+
+                <div class="customer-selection">
+
+                    <label for="customer-name">
+                        Ordering as
+                    </label>
+
+                    <select id="customer-name">
+                        <option value="Kuba">Kuba</option>
+                        <option value="Julian">Julian</option>
+                    </select>
+
+                </div>
+
+                <div id="cart-items">
+
+                    <p class="empty-cart">
+                        Your order is currently empty.
+                    </p>
+
+                </div>
+
+                <div class="cart-total">
+                    <span>Total</span>
+                    <strong id="cart-total">£0.00</strong>
+                </div>
+
+                <button
+                    id="place-order"
+                    class="primary-button"
+                    type="button"
+                    disabled
+                >
+                    Place order
+                </button>
+
+                <p class="cart-note">
+                    Your order will be submitted to the restaurant.
+                </p>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+
+        <p>JK Restaurant</p>
+
+        <a href="admin.html">Staff access</a>
+
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
