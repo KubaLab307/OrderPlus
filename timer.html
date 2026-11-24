@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Meal Times | JK Restaurant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            JK Restaurant
+        </a>
+
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="order.html">Order</a>
+            <a href="timer.html">Meal times</a>
+        </nav>
+
+    </header>
+
+    <main class="meal-timer-page">
+
+        <section class="page-heading">
+            <p class="eyebrow">JK RESTAURANT</p>
+            <h1>Meal times.</h1>
+            <p>See our current estimated preparation time.</p>
+        </section>
+
+        <section class="waiting-time-card">
+
+            <p class="eyebrow">CURRENT ESTIMATE</p>
+
+            <div class="waiting-time-display">
+
+                <strong id="waiting-time">--</strong>
+
+                <span>minutes</span>
+
+            </div>
+
+            <p id="waiting-time-message">
+                Waiting for the latest estimate...
+            </p>
+
+            <div class="waiting-time-divider"></div>
+
+            <div class="waiting-time-information">
+
+                <div>
+                    <span>Restaurant</span>
+                    <strong id="timer-restaurant-status">
+                        Checking...
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Last updated</span>
+                    <strong id="timer-last-updated">
+                        Checking...
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="timer-information">
+
+            <h2>About waiting times</h2>
+
+            <p>
+                Preparation times are estimates and may change
+                depending on the number of orders being prepared.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+
+        <p>JK Restaurant</p>
+
+        <a href="order.html">Place an order</a>
+
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
