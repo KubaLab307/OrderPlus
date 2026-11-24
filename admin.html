@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Admin Login | JK Restaurant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">JK Restaurant</a>
+
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="order.html">Order</a>
+        </nav>
+    </header>
+
+    <main class="admin-login-page">
+
+        <section class="admin-login-card">
+
+            <p class="eyebrow">JK RESTAURANT</p>
+
+            <h1>Staff access.</h1>
+
+            <p class="login-description">
+                Enter your administrator PIN to continue.
+            </p>
+
+            <form id="admin-login-form">
+
+                <label for="admin-pin">Administrator PIN</label>
+
+                <input
+                    type="password"
+                    id="admin-pin"
+                    name="pin"
+                    placeholder="Enter PIN"
+                    inputmode="numeric"
+                    autocomplete="current-password"
+                    maxlength="20"
+                    required
+                >
+
+                <p id="login-error" class="login-error" hidden>
+                    Unable to verify your PIN. Please try again.
+                </p>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="login-button"
+                >
+                    Continue
+                </button>
+
+            </form>
+
+            <a href="index.html" class="back-link">
+                Back to homepage
+            </a>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>JK Restaurant</p>
+        <span>Staff area</span>
+    </footer>
+
+    <script src="admin.js"></script>
+
+</body>
+</html>
