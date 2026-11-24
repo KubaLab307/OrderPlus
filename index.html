@@ -16,51 +16,76 @@
     <header class="header">
         <a href="index.html" class="logo">JK Restaurant</a>
 
-        <nav>
-            <a href="#menu">Menu</a>
-            <a href="#about">About</a>
-            <a href="admin.html">Admin</a>
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="order.html">Order</a>
+            <a href="timer.html">Meal times</a>
         </nav>
     </header>
 
     <main>
 
         <section class="hero">
-            <p class="eyebrow">WELCOME TO</p>
-            <h1>JK Restaurant.</h1>
-            <p class="hero-description">
-                Good food. Simple ordering.
-            </p>
+            <div class="hero-content">
 
-            <a href="#menu" class="primary-button">
-                Explore the menu
-            </a>
-        </section>
+                <p class="eyebrow">WELCOME TO JK RESTAURANT</p>
 
-        <section id="menu" class="menu-section">
-            <p class="eyebrow">OUR FOOD</p>
-            <h2>The Menu</h2>
+                <h1>Good food.<br>Made simple.</h1>
 
-            <div id="menu-container">
-                <p>Loading menu...</p>
+                <p class="hero-description">
+                    Discover our menu, place your order
+                    and enjoy your meal.
+                </p>
+
+                <a href="order.html" class="primary-button">
+                    View the menu
+                </a>
+
             </div>
         </section>
 
-        <section id="about" class="about-section">
-            <h2>About JK Restaurant</h2>
+        <section class="home-sections">
+
+            <div class="section-heading">
+                <p class="eyebrow">EXPLORE</p>
+                <h2>Everything in one place.</h2>
+            </div>
+
+            <div class="home-grid">
+
+                <a href="order.html" class="home-card">
+                    <span class="card-number">01</span>
+                    <h3>Order food</h3>
+                    <p>Explore our menu and place an order.</p>
+                    <span class="card-link">View menu →</span>
+                </a>
+
+                <a href="timer.html" class="home-card">
+                    <span class="card-number">02</span>
+                    <h3>Meal times</h3>
+                    <p>See the current estimated waiting time.</p>
+                    <span class="card-link">View waiting time →</span>
+                </a>
+
+            </div>
+
+        </section>
+
+        <section class="home-about">
+            <p class="eyebrow">JK RESTAURANT</p>
+            <h2>Welcome.</h2>
             <p>
-                Welcome to JK Restaurant.
-                We look forward to serving you.
+                A simple place to discover food
+                and enjoy ordering.
             </p>
         </section>
 
     </main>
 
-    <footer>
+    <footer class="footer">
         <p>JK Restaurant</p>
+        <a href="admin.html">Staff access</a>
     </footer>
-
-    <script src="app.js"></script>
 
 </body>
 </html>
